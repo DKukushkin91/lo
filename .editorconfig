@@ -1,0 +1,20 @@
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+charset = utf-8
+
+# 4 space indentation JS | JSX | TS | TSX
+[src/**/*.{js,jsx,ts,tsx}]
+indent_style = space
+indent_size = 4
+max_line_length = 220
+
+[*/**.xml]
+indent_size = 2
+max_line_length = 600
