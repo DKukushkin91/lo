@@ -3,6 +3,7 @@ import {usePostData} from '@shared/lib/hooks/api/use-post-data';
 import {Endpoints} from '../config/endoints';
 import ICreateTokenResponse from '../types/create-token-response';
 import ICreateTokenResponseParams from '../types/create-token-response-params';
+import IDeleteTokenResponseParams from '../types/delete-token-response-params';
 
 export const useCreateToken = () => {
     const {
@@ -28,7 +29,7 @@ export const useDeleteToken = () => {
         error,
         isPending,
         isError,
-    } = useDeleteData({
+    } = useDeleteData<void, IDeleteTokenResponseParams>({
         url: Endpoints.Token,
     });
 

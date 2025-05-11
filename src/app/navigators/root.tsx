@@ -13,6 +13,7 @@ const Stack = createNativeStackNavigator<TStackRootParamsList>();
 export const RootNavigator = () => {
     const systemInfo = useSystemStore.use.info();
     const isAuthenticated = Boolean(useIdentityStore.use.auth()?.access_token);
+    const refreshToken = useIdentityStore.use.auth()?.refresh_token;
     const setAuth = useIdentityStore.use.setAuth();
 
     const {
@@ -22,7 +23,9 @@ export const RootNavigator = () => {
 
     const handleLogoutPress = async () => {
         try {
-            await deleteToken();
+            if (refreshToken) {
+                await deleteToken({refreshToken});
+            }
         } finally {
             setAuth(null);
         }

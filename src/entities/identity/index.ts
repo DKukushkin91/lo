@@ -14,6 +14,3 @@ export {
     identityApiSetup,
     useIdentityStore,
 };
-
-// Types
-export type {default as ICreateTokenResponse} from './types/create-token-response';
